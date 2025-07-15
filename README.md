@@ -30,7 +30,7 @@ This application combines several advanced browser APIs to deliver a comprehensi
 
 1. **Clone the repository:**
    ```bash
-   git clone (https://github.com/siddharthgupta5/Real-Time-Traffic-Visualization-Dashboard)
+   git clone "https://github.com/siddharthgupta5/Real-Time-Traffic-Visualization-Dashboard"
    cd traffic-visualizer
    ```
 2. **Install dependencies:**
