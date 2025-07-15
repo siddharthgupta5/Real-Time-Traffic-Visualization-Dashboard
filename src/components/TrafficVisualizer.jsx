@@ -238,19 +238,14 @@ export default function TrafficVisualizer({ trafficData, position }) {
 
   return (
     <div className="traffic-visualizer">
-      <div className="visualizer-header">
-        <h3>Traffic Conditions</h3>
-        <p className="api-info">
-          Using <strong>Canvas API</strong> for visualization and <strong>Intersection Observer API</strong> for performance
-        </p>
+      <div className="api-tags">
+        <span className="api-tag">
+          Using <strong>Canvas API</strong>
+        </span>
+        <span className="api-tag">
+          Using <strong>Intersection Observer API</strong>
+        </span>
       </div>
-      <div className="traffic-legend">
-        <div className="legend-item">
-            <span className="high-congestion"></span>
-            <span>High Traffic</span>
-        </div>
-        {/* Medium and Low items */}
-        </div>
       <div className="canvas-container">
         <canvas 
           ref={canvasRef} 
