@@ -30,7 +30,7 @@ This application combines several advanced browser APIs to deliver a comprehensi
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone (https://github.com/siddharthgupta5/Real-Time-Traffic-Visualization-Dashboard)
    cd traffic-visualizer
    ```
 2. **Install dependencies:**
@@ -58,7 +58,8 @@ traffic-visualizer/
 │   ├── hooks/             # Custom React hooks
 │   ├── utils/             # Utility functions
 │   ├── styles.css         # Global styles
-│   └── App.jsx            # Main application component
+|   ├── App.jsx            # Main application component
+│   └── main.jsx           # Main entry component
 ├── index.html             # HTML entry point
 ├── package.json           # Project metadata and scripts
 └── README.md              # Project documentation
