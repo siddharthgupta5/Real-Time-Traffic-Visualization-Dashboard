@@ -26,52 +26,48 @@ export default function NetworkStatus({ networkInfo }) {
   }
 
   const getNetworkQuality = () => {
-    if (!networkInfo.effectiveType) return { text: 'Unknown', color: '#9E9E9E' };
+    if (!networkInfo.effectiveType) return { text: 'Unknown', color: '#9E9E9E', icon: '❓' };
     
     if (networkInfo.effectiveType.includes('4g') && networkInfo.downlink > 4) {
-      return { text: 'Excellent', color: '#4CAF50' };
+      return { text: 'Excellent', color: '#4CAF50', icon: '📶' };
     } else if (networkInfo.effectiveType.includes('3g') && networkInfo.downlink > 2) {
-      return { text: 'Good', color: '#FFC107' };
+      return { text: 'Good', color: '#FFC107', icon: '📶' };
     } else if (networkInfo.effectiveType.includes('2g')) {
-      return { text: 'Poor', color: '#F44336' };
+      return { text: 'Poor', color: '#F44336', icon: '📶' };
     }
-    return { text: 'Fair', color: '#FF9800' };
+    return { text: 'Fair', color: '#FF9800', icon: '📶' };
   };
 
   const quality = getNetworkQuality();
 
   return (
     <div className="network-status">
-      <div className="network-current" style={{ borderLeft: `4px solid ${quality.color}` }}>
-        <div className="network-quality" style={{ backgroundColor: `${quality.color}20` }}>
-          <span style={{ color: quality.color }}>{quality.text} Connection</span>
+      <div className="network-quality-badge" style={{ backgroundColor: `${quality.color}20` }}>
+        <span style={{ color: quality.color }}>
+          {quality.icon} {quality.text} Connection
+        </span>
+      </div>
+      
+      <div className="network-details-grid">
+        <div className="detail-item">
+          <span className="detail-label">Type:</span>
+          <span className="detail-value">{networkInfo.type || 'Unknown'}</span>
         </div>
-        
-        <div className="network-details">
-          <div className="network-detail">
-            <span className="detail-label">Type:</span>
-            <span className="detail-value">{networkInfo.type || 'Unknown'}</span>
-          </div>
-          <div className="network-detail">
-            <span className="detail-label">Effective Type:</span>
-            <span className="detail-value">{networkInfo.effectiveType || 'Unknown'}</span>
-          </div>
-          <div className="network-detail">
-            <span className="detail-label">Downlink:</span>
-            <span className="detail-value">{networkInfo.downlink ? `${networkInfo.downlink} Mbps` : 'Unknown'}</span>
-          </div>
-          <div className="network-detail">
-            <span className="detail-label">Latency:</span>
-            <span className="detail-value">{networkInfo.rtt ? `${networkInfo.rtt} ms` : 'Unknown'}</span>
-          </div>
-          <div className="network-detail">
-            <span className="detail-label">Data Saver:</span>
-            <span className="detail-value">{networkInfo.saveData ? 'Enabled' : 'Disabled'}</span>
-          </div>
+        <div className="detail-item">
+          <span className="detail-label">Effective Type:</span>
+          <span className="detail-value">{networkInfo.effectiveType || 'Unknown'}</span>
         </div>
-        
-        <div className="network-updated">
-          Last updated: {lastUpdated}
+        <div className="detail-item">
+          <span className="detail-label">Downlink:</span>
+          <span className="detail-value">{networkInfo.downlink ? `${networkInfo.downlink} Mbps` : 'Unknown'}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">Latency:</span>
+          <span className="detail-value">{networkInfo.rtt ? `${networkInfo.rtt} ms` : 'Unknown'}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">Data Saver:</span>
+          <span className="detail-value">{networkInfo.saveData ? 'Enabled' : 'Disabled'}</span>
         </div>
       </div>
       
@@ -90,10 +86,8 @@ export default function NetworkStatus({ networkInfo }) {
         </div>
       )}
       
-      <div className="network-api-info">
-        <p className="small">
-          Using <strong>Network Information API</strong> for real-time connection data
-        </p>
+      <div className="api-tag">
+        Using <strong>Network Information API</strong> for real-time connection data
       </div>
     </div>
   );
