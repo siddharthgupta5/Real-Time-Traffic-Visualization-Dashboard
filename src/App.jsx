@@ -86,9 +86,9 @@ function App() {
 
   return (
     <div className="app">
-      <header>
+      <header className="app-header">
         <h1>Real-Time Traffic Visualization Dashboard</h1>
-        <p className="subtitle">
+        <p className="api-subtitle">
           Using Geolocation, Network Information, Canvas, Intersection Observer, and Background Tasks APIs
         </p>
       </header>
@@ -105,22 +105,18 @@ function App() {
           </section>
           
           <div className="dashboard-columns">
-            <section className="dashboard-section network-section">
+            <section className="dashboard-section">
               <h2>Network Status</h2>
               <NetworkStatus networkInfo={networkInfo} />
             </section>
             
-            <section className="dashboard-section traffic-section">
+            <section className="dashboard-section">
               <h2>Traffic Conditions</h2>
               <TrafficVisualizer trafficData={trafficData} position={position} />
             </section>
           </div>
         </main>
       )}
-      
-      <footer>
-        <p>Traffic Visualization Dashboard</p>
-      </footer>
     </div>
   );
 }
